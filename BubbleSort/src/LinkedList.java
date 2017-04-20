@@ -129,7 +129,7 @@ public class LinkedList {
 	}
 	
 	/**
-	 * prints the LinkedList values
+	 * prints the LinkedList Node values
 	 */
 	public void print() {
 		int counter = 0;

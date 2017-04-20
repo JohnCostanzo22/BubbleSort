@@ -1,9 +1,23 @@
+/**
+ * Class that contains a method to BubbleSort a 
+ * LinkedList using methods in the LinkedList class.
+ * It is in a seperate class just for easy access
+ * in case I need to reuse the method
+ *
+ */
 public class BubbleSort {
 
+	//properties
 	private boolean moved;
 	private Node placeOne;
 	private Node placeTwo;
 
+	/**
+	 * Bubbles sorts the LinkedList using swap method to 
+	 * move Nodes around in the LinkedList
+	 * @param list - LinkedList to be sorted
+	 * @return the LinkedList
+	 */
 	public LinkedList Sort(LinkedList list) {
 		moved = true;
 		while(moved) {
