@@ -11,7 +11,7 @@ public class Main {
 		
 		list.print();
 		
-		sort.BubbleSort(list);
+		list = sort.Sort(list);
 		
 		list.print();
 	}

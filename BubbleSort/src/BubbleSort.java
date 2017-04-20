@@ -1,11 +1,32 @@
 public class BubbleSort {
 
-	private int moves;
+	private boolean moved;
 	private Node placeOne;
 	private Node placeTwo;
-	private LinkedList tempList = new LinkedList();
+	private Node temp;
 	
-	public LinkedList BubbleSort(LinkedList list) {
+	public LinkedList Sort(LinkedList list) {
+		moved = true;
+		while(moved) {
+			placeOne = list.getHead();
+			placeTwo = placeOne.getNext();
+			moved = false;
+			while(placeTwo != null) {
+				if(placeOne.getValue() > placeTwo.getValue()) {
+					list.swap(placeOne);
+					placeTwo = placeOne.getNext();
+					moved = true;
+				}
+				else {
+					placeOne = placeTwo;
+					placeTwo = placeTwo.getNext();
+				}
+			}
+		}
+		return list;
+	}
+	
+	/*public LinkedList Sort(LinkedList list) {
 		placeOne = list.getHead();
 		placeTwo = placeOne.getNext();
 		moves = 0;
@@ -46,9 +67,60 @@ public class BubbleSort {
 			}
 		}
 		if(moves > 0) {
-			BubbleSort(tempList);
+			Sort(tempList);
 		}
 		return tempList;
-	}
+	}*/
 	
+	/*public LinkedList Sort(LinkedList list) {
+		
+		placeOne = list.getHead();
+		placeTwo = placeOne.getNext();
+		tempList = new LinkedList();
+		moves = 1;
+		
+		while(placeOne != null) {
+			moves = 0;
+			if(placeOne.getValue() > placeTwo.getValue()) {
+				tempList.add(placeTwo);
+				moves++;
+				placeTwo = placeTwo.getNext();
+				//check if this is at the end of the list
+				if(placeTwo.getNext() == null) {
+					if(placeOne.getValue() > placeTwo.getValue()) {
+						tempList.add(placeTwo);
+						tempList.add(placeOne);
+					}
+					else {
+						tempList.add(placeOne);
+						tempList.add(placeTwo);
+					}
+					placeOne = null;
+				}
+			}
+			else {
+				tempList.add(placeOne);
+				placeOne = placeTwo;
+				placeTwo = placeOne.getNext();
+				//check for last sort
+				if(placeTwo.getNext() == null) {
+					if(placeOne.getValue() > placeTwo.getValue()) {
+						tempList.add(placeTwo);
+						tempList.add(placeOne);
+					}
+					else {
+						tempList.add(placeOne);
+						tempList.add(placeTwo);
+					}
+					placeOne = null;
+				}
+			}
+		}
+		if(moves > 0) {
+			Sort(tempList);
+		}
+		list = tempList;
+		return list;
+	}
+	*/
 }
