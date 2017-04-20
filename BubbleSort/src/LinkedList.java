@@ -22,7 +22,7 @@ public class LinkedList {
 	
 	public void add(Node newNode) {
 		if(head == null) {
-			newNode = head;
+			head = newNode;
 		}
 		else if(tail == null) {
 			tail = newNode;
@@ -41,7 +41,7 @@ public class LinkedList {
 		}
 		else {
 			placeHolder = head;
-			for(int i = 0; i < size-1; i++) {
+			while (placeHolder != null) {
 				System.out.println(placeHolder.getValue());
 				placeHolder = placeHolder.getNext();
 			}
