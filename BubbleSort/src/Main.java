@@ -9,6 +9,10 @@ public class Main {
 		LinkedList randomList = new LinkedList();
 		Random random = new Random();
 		int num;
+		
+		list.print();
+		
+		sort.Sort(list);
 	 
 		list.add(new Node(10));
 		list.add(new Node(4));

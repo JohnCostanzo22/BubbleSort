@@ -3,7 +3,6 @@ public class LinkedList {
 	private Node head;
 	private Node tail;
 	private Node placeHolder;
-	private int size;
 	private Node beforeNode;
 	private Node afterPlaceHolder;
 	
@@ -11,7 +10,6 @@ public class LinkedList {
 		head = null;
 		tail = null;
 		placeHolder = null;
-		size = 0;
 	}
 	
 	public Node getHead() {
@@ -23,6 +21,9 @@ public class LinkedList {
 	}
 	
 	public void add(Node newNode) {
+		if(newNode == null) {
+			return;
+		}
 		if(head == null) {
 			head = newNode;
 		}
@@ -39,9 +40,34 @@ public class LinkedList {
 			
 	}
 	
+	public boolean find(Node node) {
+		//list is empty
+		if(head == null) {
+			return false;
+		}
+		else {
+			placeHolder = head;
+			while(placeHolder != null) {
+				if(placeHolder == node) {
+					return true;
+				}
+				placeHolder = placeHolder.getNext();
+			}
+		}
+		return false;
+	}
+	
 	//add swap class to deal with setNext and setPrevious and head/tail
 	//swaps this node with the next
 	public void swap(Node node) {
+		if(node == null) {
+			System.out.println("Cant swap a null Node");
+			return;
+		}
+		else if(!this.find(node)) {
+			System.out.println("Cant swap a Node that isn't in the list");
+			return;
+		}
 		if(node == head) {
 			placeHolder = head.getNext();
 			head.setNext(placeHolder.getNext());
@@ -90,7 +116,7 @@ public class LinkedList {
 				if(counter % 10 == 0)
 					System.out.println();
 			}
+			System.out.println();
 		}
-		System.out.println();
 	}
 }

@@ -3,13 +3,17 @@ public class BubbleSort {
 	private boolean moved;
 	private Node placeOne;
 	private Node placeTwo;
-	private Node temp;
-	
+
 	public LinkedList Sort(LinkedList list) {
 		moved = true;
 		while(moved) {
-			placeOne = list.getHead();
-			placeTwo = placeOne.getNext();
+			try {
+				placeOne = list.getHead();
+				placeTwo = placeOne.getNext();
+			} catch (NullPointerException e) {
+				System.out.println("The list is empty");
+				break;
+			}
 			moved = false;
 			while(placeTwo != null) {
 				if(placeOne.getValue() > placeTwo.getValue()) {
@@ -25,6 +29,7 @@ public class BubbleSort {
 		}
 		return list;
 	}
+	//code graveyard
 	
 	/*public LinkedList Sort(LinkedList list) {
 		placeOne = list.getHead();
