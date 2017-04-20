@@ -1,29 +1,49 @@
+/*
+ * Class that creates a doubly linked list of Nodes
+ */
 public class LinkedList {
 
+	//properties
 	private Node head;
 	private Node tail;
 	private Node placeHolder;
 	private Node beforeNode;
 	private Node afterPlaceHolder;
 	
+	/**
+	 * Default Constructor
+	 */
 	public LinkedList() {
 		head = null;
 		tail = null;
 		placeHolder = null;
 	}
-	
+	/**
+	 * Accessor method
+	 * @return the head of the LinkedList
+	 */
 	public Node getHead() {
 		return head;
 	}
 	
+	/**
+	 * Accessor method
+	 * @return tail of the LinkedList
+	 */
 	public Node getTail() {
 		return tail;
 	}
 	
+	/**
+	 * Adds a new Node to the List
+	 * and maintains head & tail 
+	 * @param newNode - added Node
+	 */
 	public void add(Node newNode) {
 		if(newNode == null) {
 			return;
 		}
+		//is the list empty?
 		if(head == null) {
 			head = newNode;
 		}
@@ -40,6 +60,11 @@ public class LinkedList {
 			
 	}
 	
+	/**
+	 * Checks if a node is in the LinkedList
+	 * @param node being looked for
+	 * @return true if the Node is found, otherwise false
+	 */
 	public boolean find(Node node) {
 		//list is empty
 		if(head == null) {
@@ -57,8 +82,11 @@ public class LinkedList {
 		return false;
 	}
 	
-	//add swap class to deal with setNext and setPrevious and head/tail
-	//swaps this node with the next
+	/**
+	 * swaps the node with the next node and
+	 * maintains head, tail, and previous/next 
+	 * @param node - the node to flip with the next Node
+	 */
 	public void swap(Node node) {
 		if(node == null) {
 			System.out.println("Cant swap a null Node");
@@ -100,6 +128,9 @@ public class LinkedList {
 		}
 	}
 	
+	/**
+	 * prints the LinkedList values
+	 */
 	public void print() {
 		int counter = 0;
 		if(head == null) {
