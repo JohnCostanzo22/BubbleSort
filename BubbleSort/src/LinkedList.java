@@ -75,15 +75,22 @@ public class LinkedList {
 	}
 	
 	public void print() {
+		int counter = 0;
 		if(head == null) {
 			System.out.println("The list is empty");
 		}
 		else {
+			System.out.print("LinkedList: ");
 			placeHolder = head;
 			while (placeHolder != null) {
-				System.out.println(placeHolder.getValue());
+				System.out.print(placeHolder.getValue() + " ");
 				placeHolder = placeHolder.getNext();
+				//formatting
+				counter++;
+				if(counter % 10 == 0)
+					System.out.println();
 			}
 		}
+		System.out.println();
 	}
 }
